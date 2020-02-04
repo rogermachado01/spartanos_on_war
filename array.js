@@ -1,23 +1,13 @@
+/* 
+    Run node array.js
+    Code by Roger Machado in 04/02/2020.
+*/
+
 var a = [9,3,9,3,9,7,9]
-
-/* function arr(array){
-    var dict = {};
-    var unpaired = 0;
-    array.forEach(val=>{
-        dict[val] = dict[val] === undefined ? 1 : dict[val] +1
-    })
-
-    for (var nums in dict){
-        if (dict[nums]%2 === 1){
-            unpaired = nums
-        }
-    }
-    return unpaired
-} */
 
 function arr(array, i, memo ={ }, bin_res ={}){
     if (i > array.length -1){
-        console.log('end')
+        //console.log('end')
         return bin_res['unpaired']
     }
     if (memo[array[i]] === undefined){
@@ -28,7 +18,7 @@ function arr(array, i, memo ={ }, bin_res ={}){
     }else{
         bin_res['paired'] = array[i]
     }
-    console.log(array[i], memo, bin_res)
+    //console.log(array[i], memo, bin_res)
     return arr(array, i+1, memo, bin_res)
 }
 

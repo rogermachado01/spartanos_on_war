@@ -1,3 +1,8 @@
+/* 
+    Run node distinct.js
+    Code by Roger Machado in 04/02/2020.
+*/
+
 var a = [ 2,1,1,2,3,1];
 
 function distincts(array){
