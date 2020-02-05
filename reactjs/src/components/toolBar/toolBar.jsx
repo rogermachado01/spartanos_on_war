@@ -1,19 +1,22 @@
 import React from 'react';
 import {Button} from '@material-ui/core'
+import {withContext} from '../apiContext/withContext.js'
 
 function ToolBar(props){
-    const [filter, setFilter] = React.useState('Open')
+    const [filter, setFilter] = React.useState('All')
 
-    const handleFilter = () => {
-        var r = filter === 'Open' ? 'Done': 'Open'
-        setFilter(r);
+    const handleFilter = (r) => {
+        props.context.setFilter(r)
       };
 
     return(
         <React.Fragment>
-            rogermachado filter tasks by: <Button onClick={handleFilter}>{filter}</Button>
+            Filter tasks by: 
+            <Button onClick={()=> handleFilter('All')}>All</Button>
+            <Button onClick={()=> handleFilter('Done')}>Done</Button>
+            <Button onClick={()=> handleFilter('Open')}>Open</Button>
         </React.Fragment>
     )
 }
 
-export default ToolBar
+export default withContext(ToolBar)

@@ -1,16 +1,32 @@
 import React from 'react';
 import {Button, IconButton, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle}from '@material-ui/core';
 
+
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
-
+  const [taskText, setTaskText] = React.useState('')
+  
   const handleClickOpen = () => {
-    setOpen(true);
+    setOpen(true); 
   };
 
   const handleClose = () => {
     setOpen(false);
+    if(props.task){
+      props.callback(taskText)
+    }else{
+      props.callback(props.ind)
+    }
   };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
+
+  const setText = (v) =>{
+    setTaskText(v.target.value)
+  }
 
   return (
     <div>
@@ -42,11 +58,12 @@ export default function FormDialog(props) {
                 label="Add your Task to Do"
                 type="text"
                 fullWidth
+                onChange={setText}
             />
             )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleCancel} color="primary">
             Cancel
           </Button>
           <Button onClick={handleClose} color="primary">

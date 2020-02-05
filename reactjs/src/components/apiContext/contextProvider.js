@@ -7,28 +7,42 @@ class ContextProvider extends Component {
     super(props);
     this.state = {
       tasks: [{action:'do that... 0', status: 'Done'}, {action:'do that... 1', status: 'Open'}, {action:'do that... 2', status: 'Done'}],
-      filter: "Open"
+      filter: "All"
     };
 
-    this.addTask = this.addTask.bind(this);
-    this.deleteTask = this.deleteTask.bind(this);
-    this.setStatusTask = this.setStatusTask.bind(this);
-    this.setFilter = this.setFilter.bind(this);
-  }
+      this.addTask = this.addTask.bind(this);
+      this.deleteTask = this.deleteTask.bind(this);
+      this.setStatusTask = this.setStatusTask.bind(this);
+      this.setFilter = this.setFilter.bind(this);
+    }
+
   addTask = (action) => {
-   
-  };
-  deleteTask = (ind) => {
+    this.state.tasks.push({action: action,
+      status: 'Open'})
+    this.setState({...this.state.tasks})  
   };
 
-  setStatusTask = (ind, status) => {
+  deleteTask = (ind) => {
+    this.state.tasks.splice(ind, 1)
+    this.setState({...this.state.tasks})
+  };
+
+  setStatusTask = (status, ind) => {
+    var r = ''
+    if(status === 'Open'){
+      r = 'Done'
+    }
+    if(status === 'Done'){
+      r = 'Open'
+    }
+    this.state.tasks[ind].status = r
+    this.setState({...this.state.tasks}) 
   };
 
   setFilter = (filter) => {
+    this.setState({filter:filter})
   };
 
-
-  
   render() {
     return (
       <Context.Provider
