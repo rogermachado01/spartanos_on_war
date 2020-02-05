@@ -4,7 +4,7 @@ import Delete from '@material-ui/icons/Delete';
 import Done from '@material-ui/icons/Done';
 import Restore from '@material-ui/icons/Restore';
 import Dialog from '../materialUi/dialog.jsx'
-
+import {withContext} from '../apiContext/withContext.js'
 function Item(props){
 
     const handleDelete = (key) => {
@@ -31,8 +31,9 @@ function Item(props){
 }
 
 function listToDo(props){
-    var todos =[{action:'do that... 0', status: 'Done'}, {action:'do that... 1', status: 'Open'}, {action:'do that... 2', status: 'Done'}]
-    var filter = 'Open'
+    console.log(props)
+    var todos =props.context.state.tasks
+    var filter = props.context.state.filter
     return (
         <List>
             {todos.map((v, ind)=>{
@@ -45,4 +46,4 @@ function listToDo(props){
 }
 
 
-export default listToDo
+export default withContext(listToDo)

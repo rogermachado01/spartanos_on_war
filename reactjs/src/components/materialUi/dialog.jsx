@@ -34,7 +34,7 @@ export default function FormDialog(props) {
           <DialogContentText>
             {props.text}
           </DialogContentText>
-            {props.taks && (
+            {props.task && (
                 <TextField
                 autoFocus
                 margin="dense"

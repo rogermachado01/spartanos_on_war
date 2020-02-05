@@ -5,9 +5,9 @@ import Dialog from '../materialUi/dialog.jsx'
 
 function addTodo(){
     return (
-    <Grid>
-        <Dialog btn_name={'Add Task'} action={'ADD'} title={'New Task'} taks={true}/>
-    </Grid>
+        <Grid>
+            <Dialog btn_name={'Add Task'} action={'ADD'} title={'New Task'} task={true}/>
+        </Grid>
     )
 }
 
