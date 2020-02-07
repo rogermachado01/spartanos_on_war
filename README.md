@@ -1,7 +1,7 @@
 # spartanos_on_war
 Tests for Sparta.io
 
-RUN REACTJS TEST
- -> install modules dep
+I/RUN REACTJS TEST
  -> cd reactjs
+ -> install modules dep
  -> yarn start
