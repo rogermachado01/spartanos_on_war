@@ -1,8 +1,10 @@
 import React from 'react';
-import {Button, IconButton, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle}from '@material-ui/core';
-
+import {Button, Fab, IconButton, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle}from '@material-ui/core';
+import Add from '@material-ui/icons/Add';
+import useStyle from '../../styles.jsx'
 
 export default function FormDialog(props) {
+  const classes = useStyle()
   const [open, setOpen] = React.useState(false);
   const [taskText, setTaskText] = React.useState('')
   
@@ -35,9 +37,9 @@ export default function FormDialog(props) {
            {props.icon}
         </IconButton>
       : 
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        {props.btn_name}
-      </Button>
+      <Fab className={classes.addTaskBtn} variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Add></Add>
+      </Fab>
       }
       <Dialog 
         open={open} 
